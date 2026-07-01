@@ -18,7 +18,6 @@ flask
 fsspec
 httpcore
 httpx
-isapi
 itsdangerous
 jinja2
 jiter
@@ -53,7 +52,6 @@ pyperclip
 pyrect
 pyscreeze
 python-docx
-pythonwin
 pytweening
 pywin32
 pywinauto
