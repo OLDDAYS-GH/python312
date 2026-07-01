@@ -25,7 +25,6 @@ kiwisolver
 markupsafe
 matplotlib
 mouseinfo
-msoffcrypto
 msoffcrypto-tool
 olefile
 openai
