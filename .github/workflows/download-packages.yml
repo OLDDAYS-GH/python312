@@ -1,0 +1,27 @@
+name: Download Python Packages
+
+on:
+  workflow_dispatch:  # 手动触发
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      
+      - name: Download packages
+        run: |
+          mkdir packages
+          pip download -r requirements.txt --python-version 3.12 --only-binary=:all: -d ./packages
+          tar czvf python3.12_packages.tar.gz packages/
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-packages
+          path: python3.12_packages.tar.gz
