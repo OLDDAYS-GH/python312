@@ -29,7 +29,6 @@ msoffcrypto-tool
 olefile
 openai
 pathlib2
-pdfminer
 pdfminer-six
 pdfplumber
 pyautogui
@@ -44,9 +43,6 @@ pymsgbox
 pyparsing
 pypdf2
 pypdfium2
-pypdfium2-cfg
-pypdfium2-cli
-pypdfium2-raw
 pyperclip
 pyrect
 pyscreeze
@@ -59,9 +55,7 @@ scidatetime
 scipy
 setuptools==80.9.0
 sgtpyutils
-spark-parser
 starlette
-test-unit
 tinyaes
 typing-inspection
 uiautomation
