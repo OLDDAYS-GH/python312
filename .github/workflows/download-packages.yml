@@ -5,7 +5,7 @@ on:
 
 jobs:
   download:
-    runs-on: ubuntu-latest
+        runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       
@@ -17,7 +17,18 @@ jobs:
       - name: Download packages
         run: |
           mkdir packages
-          pip download -r requirements.txt --python-version 3.12 --only-binary=:all: -d ./packages
+          
+          # 先尝试只下载 wheel（纯 Python 包 + 有预编译 wheel 的包）
+          echo "=== Step 1: Downloading wheel packages ==="
+          pip download -r requirements.txt --python-version 3.12 --only-binary=:all: -d ./packages || echo "Some packages have no wheel, will download source next"
+          
+          # 再下载剩余需要源码编译的包（如 adodbapi 这类纯 Python 源码包）
+          echo "=== Step 2: Downloading source packages for remaining ==="
+          pip download -r requirements.txt --python-version 3.12 --no-binary :all: -d ./packages
+          
+          echo "=== Download complete, package list: ==="
+          ls -la ./packages/
+          
           tar czvf python3.12_packages.tar.gz packages/
       
       - name: Upload artifact
