@@ -1,4 +1,3 @@
-﻿adodbapi
 annotated-doc
 annotated-types
 anyio
@@ -10,11 +9,9 @@ click
 colorlog
 comtypes
 contourpy
-crypto
 cryptography
 cycler
 distro
-docx
 exceptiongroup
 fastapi
 flask
@@ -76,7 +73,4 @@ uvicorn
 waitress
 werkzeug
 wheel
-win32
-win32com
-win32comext
 xdis
